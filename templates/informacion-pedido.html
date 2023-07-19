@@ -29,3 +29,6 @@
     </table>
     <a href="{{ url_for('inicio')}}" class="btn btn-outline-success btn-lg btn-inicio">Volver al inicio</a>
 {% endblock %}
+{% block scripts %}
+<script lang="javascript" src="{{ url_for('static', filename='/javascript/agrandar.js')}}"></script>
+{% endblock %}

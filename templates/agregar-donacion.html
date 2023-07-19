@@ -6,23 +6,23 @@
             <h2 id="val-msg"></h2>
             <ul id="val-list"></ul>
         </div>
-        <form class="form-group" name="agregar-donacion-form" id="agregar-donacion-form" method="post" enctype="multipart/form-data">
+        <form class="form-group" name="agregar-donacion-form" id="agregar-donacion-form" method="post" enctype="multipart/form-data" action="{{ url_for('agregar_donacion') }}>
             <label for="region">Región</label>
             <select id="region" name="region" class="form-select" required>
-                <option value="">Selecciona una región</option>
+                <option selected disabled value="">Selecciona una región</option>
             </select>
 
             <label for="comuna">Comuna</label>
             <select id="comuna" name="comuna" class="form-select" required>
-                <option value="">Selecciona una comuna</option>
+                <option selected disabled value="">Selecciona una comuna</option>
             </select>
 
-            <label for="calle-numero">Calle y número</label>
-            <input type="text" name="calle-numero" id="calle-numero" size="80" required><br>
+            <label for="direccion">Calle y número</label>
+            <input type="text" name="direccion" id="direccion" size="80" required><br>
 
             <label>Tipo de donación</label>
             <select name="tipo" class="form-select" aria-label="Default select example" required>
-                <option selected value="">Selecciona tipo de donación</option>
+                <option selected disabled value="">Selecciona tipo de donación</option>
                 <option value="fruta">Fruta</option>
                 <option value="verdura">Verdura</option>
                 <option value="otro">Otro</option>
@@ -64,17 +64,16 @@
                 <input type="file" name="foto3" id="files" accept="image/*,.pdf"><br>    
             </div>
             
-            <button class="btn btn-success" id="submit-btn" type="button">Agregar donación</button>
+            <button class="btn btn-success" id="submit-btn" type="submit">Agregar donación</button>
         </form>
         
     </div>
     {% endblock %}
     {% block scripts%}
-    <script src="/javascript/regiones-y-comunas.js"></script>
-    <script src="/javascript/validaciones/validacion-ag-don.js"></script>
-    <script src="/javascript/validaciones/validateDate.js"></script>
+    <script lang="javascript" src="{{ url_for('static', filename='javascript/regiones-y-comunas.js') }}"></script>
+    <script lang="javascript" src="{{ url_for('static', filename='javascript/validaciones/validateDate.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="/javascript/mostrar-form-foto.js"></script>
+    <script lang="javascript" src="{{ url_for('static', filename='javascript/mostrar-form-foto.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     {% endblock %}
